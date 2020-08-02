@@ -23,12 +23,11 @@ jobs:
         ~/dmdoc
         touch dmdoc/.nojekyll
       
-#    - name: Deploy
-#      uses: crazy-max/ghaction-github-pages@v2
-#      with:
-#        keep_history: true
-#        build_dir: dmdoc
-#        jekyll: false
-#        fqdn: codedocs.boomerstation.space
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        keep_history: true
+        build_dir: dmdoc
+        jekyll: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
