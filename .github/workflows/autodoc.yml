@@ -28,6 +28,7 @@ jobs:
       with:
         keep_history: true
         build_dir: dmdoc
-#        jekyll: false
+        jekyll: false
+        fqdn: codedocs.boomerstation.space
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
