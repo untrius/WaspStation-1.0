@@ -701,11 +701,15 @@
 	taste_description = "pure electricity"
 
 /datum/reagent/consumable/liquidelectricity/expose_mob(mob/living/M, method=TOUCH, reac_volume) //can't be on life because of the way blood works.
+	var/ingestion_charge_multiplier = 1
+	if(method == INGEST)
+		ingestion_charge_multiplier = 3
+
 	if((method == INGEST || method == INJECT || method == PATCH) && iscarbon(M))
 		var/mob/living/carbon/C = M
 		var/obj/item/organ/stomach/ethereal/stomach = C.getorganslot(ORGAN_SLOT_STOMACH)
 		if(istype(stomach))
-			stomach.adjust_charge(reac_volume * REM)
+			stomach.adjust_charge(reac_volume * ingestion_charge_multiplier * REM)
 
 /datum/reagent/consumable/liquidelectricity/on_mob_life(mob/living/carbon/M)
 	if(prob(25) && !isethereal(M))
